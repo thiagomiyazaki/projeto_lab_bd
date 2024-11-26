@@ -3,8 +3,21 @@ import pandas as pd
 import mysql.connector
 import matplotlib.pyplot as plt
 
-st.write(st.session_state.teste)
-st.write(st.session_state.counter)
+#st.write(st.session_state.teste)
+#st.write(st.session_state.counter)
+
+allow_download = 'None' if "login" not in st.session_state else 'true'
+
+st.markdown(
+    f"""
+    <style>
+    [data-testid="stElementToolbar"] {{
+        display: {allow_download};
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 with st.sidebar:
     st.page_link("app.py", label="App")
@@ -31,4 +44,7 @@ cursor.execute("SELECT NO_ENTIDADE, TP_SITUACAO_FUNCIONAMENTO, CO_MUNICIPIO, TP_
 res = cursor.fetchall()
 df = pd.DataFrame(res, columns=["Nome da Escola", "Situação Funcionamento", "Codigo do Municipio", "Localização", "Dependência"])
 
-st.dataframe(df, use_container_width=True)
+selected_row = st.dataframe(df, use_container_width=True, on_select='rerun', selection_mode='single-row')
+
+if selected_row:
+    print(selected_row)

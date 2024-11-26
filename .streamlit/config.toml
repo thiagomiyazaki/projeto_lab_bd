@@ -4,7 +4,7 @@ showSidebarNavigation = false
 [theme]
 base="dark"
 primaryColor="#d33682"
-backgroundColor="#021e27"
+backgroundColor="#050b0e"
 secondaryBackgroundColor="#23282f"
 
 textColor="#fafafa"

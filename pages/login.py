@@ -2,6 +2,8 @@ import streamlit as st
 import mysql.connector
 import hashlib
 
+st.set_page_config(page_title="Login", initial_sidebar_state="collapsed", layout="wide")
+
 with st.sidebar:
     st.page_link("app.py", label="App")
     st.page_link("pages/lista_de_escolas.py", label="Lista de Escolas")
@@ -33,6 +35,7 @@ class Login:
         print(f'{hashed.hexdigest()=}')
         return hashed.hexdigest() == result[0][0]
 
+
 with st.form("Login", clear_on_submit=True):
     st.title('Login')
     email = st.text_input('Email:')
@@ -41,11 +44,12 @@ with st.form("Login", clear_on_submit=True):
 
 if submit:
     if Login.email_exists(email):
-        print(Login.email_exists(email))
+        # print(Login.email_exists(email))
         if Login.password_correct(email, senha):
-            st.write("**Login bem sucedido!**")
-            st.toast('Login bem sucedido!', icon='🎉')
-            #st.success('This is a success message!', icon="✅")
+            st.session_state.display_message = True
+            # st.write("**Login bem sucedido!**")
+            # st.toast('Login bem sucedido!', icon='🎉')
+            # st.success('This is a success message!', icon="✅")
             st.session_state.login = email
             st.switch_page('app.py')
         else:
@@ -54,13 +58,12 @@ if submit:
     else:
         st.write("Este e-mail não existe.")
 
-""" 
-if submit:
-    if Login.email_exists():
-        if Login.password_correct():
-            # incorrect password
-            pass        
-    else:
-        # raise e-mail does not exist
-        pass
- """
+
+# if submit:
+#     if Login.email_exists():
+#         if Login.password_correct():
+#             # incorrect password
+#             pass
+#     else:
+#         # raise e-mail does not exist
+#         pass
