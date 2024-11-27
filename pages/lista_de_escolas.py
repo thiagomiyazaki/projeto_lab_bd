@@ -46,5 +46,9 @@ df = pd.DataFrame(res, columns=["Nome da Escola", "Situação Funcionamento", "C
 
 selected_row = st.dataframe(df, use_container_width=True, on_select='rerun', selection_mode='single-row')
 
+cursor.execute("select * from listar_escolas_por_qt_alunos;")
+res = cursor.fetchall()
+df_lista_escolas = pd.DataFrame(res, columns=cursor.column_names)
+
 if selected_row:
     print(selected_row)

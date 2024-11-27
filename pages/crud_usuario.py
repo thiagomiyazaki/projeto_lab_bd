@@ -2,14 +2,17 @@ import streamlit as st
 import mysql.connector
 import datetime
 
-st.header("Aula de laboratório de banco de dados")
-st.write("**Conceitos Streamlit**")
 with st.sidebar:
-    st.page_link("app.py", label="App")
-    st.page_link("pages/lista_de_escolas.py", label="Lista de Escolas")
-    st.page_link("pages/alunos_escola.py", label="Métricas por Escolas")
-    st.page_link("pages/ordenar_escolas_por_qt_alunos.py", label="Escolas por Quantidade de Alunos")
+    st.image('novo_logo.png')
+    st.page_link("app.py", label="Home")
+    st.page_link("pages/dashboard.py", label="Dashboard")
+    # st.page_link("pages/lista_de_escolas.py", label="Lista de Escolas")
+    # st.page_link("pages/alunos_escola.py", label="Métricas por Escolas")
+    # st.page_link("pages/ordenar_escolas_por_qt_alunos.py", label="Escolas por Quantidade de Alunos")
     st.page_link("pages/crud_usuario.py", label="Cadastrar Usuário")
+    # st.page_link("pages/turma_por_escola.py", label="Turmas por escola")
+    st.page_link("pages/login.py", label="Login")
+    # st.page_link("pages/mapa.py", label="Mapa")
 
 def validar(nome, email, senha, dt_nasc):
 	if nome=="" or email=="" or senha=="" or dt_nasc=="":
