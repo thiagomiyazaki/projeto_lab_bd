@@ -121,8 +121,6 @@ def get_plot_data(cod_escola, df_turma, df_docente, df_matricula):
 
 st.set_page_config(page_title="Censo Escolar Rio Claro", initial_sidebar_state="collapsed", layout='wide')
 
-#st.write(st.session_state.teste)
-#st.write(st.session_state.counter)
 
 allow_download = 'None' if "login" not in st.session_state else 'true'
 
@@ -255,10 +253,10 @@ cursor.execute(f"""
 res = cursor.fetchall()
 df_niveis_ensino = pd.DataFrame(res, columns=cursor.column_names)
 
-# Transpose and reset index
+# transpoe e reseta index
 df_niveis_ensino_transposed = df_niveis_ensino.T.reset_index()
 
-# Rename columns for better readability
+# Renomeia as colunas para melhor legibilidade
 df_niveis_ensino_transposed.columns = ['Nível de Ensino', 'Quantidade']
 
 st.bar_chart(df_niveis_ensino_transposed, y_label="Quantidade", x="Nível de Ensino", x_label=None, stack=False, width=600,
@@ -358,10 +356,10 @@ if selected_row['selection']['rows']:
     res = cursor.fetchall()
     df_niveis_ensino = pd.DataFrame(res, columns=cursor.column_names)
 
-    # Transpose and reset index
+    # Transpoe e reseta index
     df_niveis_ensino_transposed = df_niveis_ensino.T.reset_index()
 
-    # Rename columns for better readability
+    # Renomeia as colunas para melhor legibilidade
     df_niveis_ensino_transposed.columns = ['Nível de Ensino', 'Quantidade']
 
     st.bar_chart(df_niveis_ensino_transposed, y_label="Quantidade", x="Nível de Ensino", x_label=None, stack=False,
