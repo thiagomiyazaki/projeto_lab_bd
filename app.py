@@ -28,7 +28,7 @@ st.markdown('''
 
 Este dashboard foi desenvolvido para apresentar, de forma clara e acessível, os principais dados do censo escolar do município de Rio Claro. Com ele, é possível explorar informações detalhadas sobre a educação local, incluindo números de matrículas, infraestrutura escolar, níveis de ensino atendidos e muito mais.
 
-Nosso objetivo é fornecer uma ferramenta interativa e visual que facilite a análise e a tomada de decisões, promovendo um entendimento mais aprofundado do panorama educacional da cidade. Navegue pelos gráficos e tabelas para descobrir insights valiosos e acompanhar de perto os indicadores que moldam o futuro da educação em Rio Claro.
+Nosso objetivo é fornecer uma ferramenta interativa e visual que facilite a análise e a tomada de decisões, promovendo um entendimento mais aprofundado do panorama educacional da cidade. Navegue pelos gráficos e tabelas para descobrir consegui insights e acompanhar de perto os indicadores que descrevem a educação em Rio Claro.
 
 ''')
 
