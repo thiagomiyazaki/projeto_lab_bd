@@ -3,8 +3,6 @@ import pandas as pd
 import mysql.connector
 import matplotlib.pyplot as plt
 
-#st.write(st.session_state.teste)
-#st.write(st.session_state.counter)
 
 allow_download = 'None' if "login" not in st.session_state else 'true'
 
@@ -39,7 +37,6 @@ cursor = conn.cursor()
 
 # (nome, status de funcionamento, município, localização,
 # dependência, níveis atendidos: EI, EF1, EF2, EM, EJA, EP, EE)
-#cursor.execute("SELECT NO_ENTIDADE, TP_SITUACAO_FUNCIONAMENTO, CO_MUNICIPIO, TP_LOCALIZACAO, TP_DEPENDENCIA,  FROM escola;")
 cursor.execute("SELECT NO_ENTIDADE, TP_SITUACAO_FUNCIONAMENTO, CO_MUNICIPIO, TP_LOCALIZACAO, TP_DEPENDENCIA FROM escola;")
 res = cursor.fetchall()
 df = pd.DataFrame(res, columns=["Nome da Escola", "Situação Funcionamento", "Codigo do Municipio", "Localização", "Dependência"])
