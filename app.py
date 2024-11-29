@@ -8,13 +8,11 @@ with st.sidebar:
     st.image('novo_logo.png')
     st.page_link("app.py", label="Home")
     st.page_link("pages/dashboard.py", label="Dashboard")
-    # st.page_link("pages/lista_de_escolas.py", label="Lista de Escolas")
-    # st.page_link("pages/alunos_escola.py", label="Métricas por Escolas")
-    # st.page_link("pages/ordenar_escolas_por_qt_alunos.py", label="Escolas por Quantidade de Alunos")
     st.page_link("pages/crud_usuario.py", label="Cadastrar Usuário")
-    # st.page_link("pages/turma_por_escola.py", label="Turmas por escola")
-    st.page_link("pages/login.py", label="Login")
-    # st.page_link("pages/mapa.py", label="Mapa")
+    if "login" in st.session_state:
+        st.page_link("pages/bookmark.py", label="Gerenciar Bookmarks")
+    else:
+        st.page_link("pages/login.py", label="Login")
 
 if "login" in st.session_state and "display_message" in st.session_state:
     if st.session_state.display_message:
@@ -25,8 +23,6 @@ st.title("Censo Escolar Rio Claro")
 
 st.image('children_studying.jpg')
 
-
-
 st.markdown('''
 ### Bem-vindo ao Dashboard do Censo Escolar de Rio Claro
 
@@ -35,7 +31,6 @@ Este dashboard foi desenvolvido para apresentar, de forma clara e acessível, os
 Nosso objetivo é fornecer uma ferramenta interativa e visual que facilite a análise e a tomada de decisões, promovendo um entendimento mais aprofundado do panorama educacional da cidade. Navegue pelos gráficos e tabelas para descobrir insights valiosos e acompanhar de perto os indicadores que moldam o futuro da educação em Rio Claro.
 
 ''')
-
 
 
 if "login" in st.session_state:
@@ -53,19 +48,5 @@ result = cursor.fetchall()
 
 df_map = pd.DataFrame(result, columns=cursor.column_names)
 
-
-
 st.map(data=df_map, zoom=12)
 
-# st.session_state.teste = "batatinha"
-#
-# if "counter" not in st.session_state:
-#     st.session_state.counter = 0
-#
-# st.write(st.session_state.teste)
-#
-# button = st.button("Counter")
-# if button:
-#     st.session_state.counter += 1
-#
-# st.write(st.session_state.counter)
