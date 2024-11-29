@@ -46,12 +46,10 @@ with st.form("Login", clear_on_submit=True):
 
 if submit:
     if Login.email_exists(email):
-        # print(Login.email_exists(email))
+
         if Login.password_correct(email, senha):
             st.session_state.display_message = True
-            # st.write("**Login bem sucedido!**")
-            # st.toast('Login bem sucedido!', icon='🎉')
-            # st.success('This is a success message!', icon="✅")
+ 
             st.session_state.login = email
             st.switch_page('app.py')
         else:
@@ -60,12 +58,3 @@ if submit:
     else:
         st.write("Este e-mail não existe.")
 
-
-# if submit:
-#     if Login.email_exists():
-#         if Login.password_correct():
-#             # incorrect password
-#             pass
-#     else:
-#         # raise e-mail does not exist
-#         pass
